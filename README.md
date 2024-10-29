@@ -1,2 +1,1 @@
-# snake_01
-first try
+# Snake-Game
