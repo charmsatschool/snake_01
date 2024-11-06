@@ -1,11 +1,11 @@
-version: '2.3'
+version: '3.3'
 services:
  snake:
    container_name: 'snake'
-   image: 'charmsforschool/snake_01'
+   image: 'charmsforschool/snake_01:latest'
    environment
-   - PORT=3000
+   - "PORT=3000"
    ports:
-   - '80:3000'
+   - "80:3000"
    volumes:
-   - ./:/usr/local/apache2/htdocs
+   - ./:/app
