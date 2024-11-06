@@ -3,7 +3,7 @@ services:
  snake:
    container_name: 'snake'
    image: 'charmsforschool/snake_01:latest'
-   environment
+   environment:
    - "PORT=3000"
    ports:
    - "80:3000"
