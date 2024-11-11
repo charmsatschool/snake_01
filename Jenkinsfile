@@ -6,7 +6,7 @@ node('appserver_3120_60') {
     }
  
     stage('Build and Tag') {
-        app = docker.build('charmsatschool/snake_01')
+        app = docker.build('charmsforschool/snake_01')
     }
  
     stage('SCA-SAST-SNYK-TEST') {
