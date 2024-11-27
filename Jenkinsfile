@@ -16,7 +16,7 @@ node('appserver_3120_60') {
             severity: 'critical'
         )
     }
- stage('SonarQube Analysis') {
+     stage('SonarQube Analysis') {
             agent {
                 label 'appserver_3120_60'
             }
