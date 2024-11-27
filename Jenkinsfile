@@ -16,22 +16,16 @@ node('appserver_3120_60') {
             severity: 'critical'
         )
     }
-     stage('SonarQube Analysis') 
-    {
-            agent {
-                label 'appserver_3120_60'
-            }
-            steps {
-                script {
-                    def scannerHome = tool 'SonarScanner'
-                    withSonarQubeEnv('SonarQube') {
-                        sh "${scannerHome}/bin/sonar-scanner \
-                            -Dsonar.projectKey=gameapp1 \
-                            -Dsonar.sources=."
+     stage('SonarQube Analysis') {
+        script {
+            def scannerHome = tool 'SonarScanner'
+            withSonarQubeEnv('SonarQube') {
+                sh "${scannerHome}/bin/sonar-scanner \
+                    -Dsonar.projectKey=gameapp1 \
+                    -Dsonar.sources=."
                     }
                 }
             }
-    }
     stage('Post to DockerHub') {
         docker.withRegistry('https://registry.hub.docker.com', '3ff81ca6-e73e-4a5e-969b-1c7b652f2a12') {
             app.push('latest')
